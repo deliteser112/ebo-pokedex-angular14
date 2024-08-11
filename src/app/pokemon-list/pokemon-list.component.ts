@@ -38,6 +38,7 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.getPokemonList().subscribe(response => {
+      console.log('response', response);
       this.pokemonList = response.results.map((pokemon: { name: string; url: string }) => {
         const id = pokemon.url.split('/').filter(part => part).pop();
         return {
